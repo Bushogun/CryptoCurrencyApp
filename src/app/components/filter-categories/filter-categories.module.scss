@@ -1,0 +1,70 @@
+@use '../../styles/colors.module.scss' as *;
+.radio-input {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Helvetica';
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .radio-input input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-input label {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid $color__gray--1;
+    background-color: $color__background;
+    border-radius: 5px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-input label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color__white;
+    border: 2px solid $color__gray--1;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-input input[type="radio"]:checked + label:before {
+    background-color: green;
+    top: 0;
+  }
+  
+  .radio-input input[type="radio"]:checked + label {
+    background-color: $color__green;
+    color: $color__black;
+    border-color: $color__black;
+    animation: radio-translate 0.5s ease-in-out;
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

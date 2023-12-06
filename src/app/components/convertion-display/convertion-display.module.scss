@@ -1,0 +1,34 @@
+@use '../../../styles/colors.module.scss' as *;
+
+.container {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.container_display{
+    text-align: center;
+    padding: 3vh;
+    border: 2px solid #ddd;
+    margin-top: 2rem;
+    font-weight: 400;
+    border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .container_display {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 423px) {
+    .container_display {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 422px) {
+    .container_display {
+        font-size: 15px;
+    }
+}
