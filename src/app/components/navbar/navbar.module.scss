@@ -1,4 +1,4 @@
-@use '../../styles/colors.module.scss'as *;
+@use '../../../styles/colors.module.scss'as *;
 
 .navbar {
   display: flex;
@@ -18,23 +18,6 @@
     color: white;
     background-color: transparent;
     position: relative;
-  }
-
-  a::after {
-    --move1: inset(50% 50% 50% 50%);
-    --move2: inset(31% 0 40% 0);
-    --move3: inset(39% 0 15% 0);
-    --move4: inset(45% 0 40% 0);
-    --move5: inset(45% 0 6% 0);
-    --move6: inset(14% 0 61% 0);
-    clip-path: var(--move1);
-    content: ' ▞▙ ▚ ▟▚  ▞  ▞  ▛▝▝▝▝ ▜   ▚  ▚';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
   }
 
   a:hover::after {
