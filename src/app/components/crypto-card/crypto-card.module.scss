@@ -1,0 +1,36 @@
+@use '../../../styles/colors.module.scss' as *;
+
+
+.container {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.container_display{
+    text-align: left;
+    padding: 3vh;
+    border: 2px solid #ddd;
+    margin-top: 2rem;
+    font-weight: 400;
+    border-radius: 4px;
+    h1{
+        text-align: left;
+    }
+}
+
+.priceChanges{
+display: flex;
+}
+
+.marketInfo{
+    display: flex;
+
+}
+
+.supplyInfo{
+    display: flex;
+
+}
