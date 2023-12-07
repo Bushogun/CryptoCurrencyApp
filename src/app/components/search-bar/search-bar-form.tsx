@@ -1,17 +1,15 @@
+'use client'
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/src/store/store";
-import { setSearchQuery } from "@/src/store/productSlice";
-import useProductData from "@/app/hooks/useProductData";
-import styles from "@/app/components/search/search-bar-form.module.scss";
+import { RootState } from "@/redux/store";
+import { setFilterQuery } from "@/redux/features/crypto-slice";
+import styles from "@/app/components/search-bar/search-bar-form.module.scss";
 
 export const SearchBarForm = () => {
   const dispatch = useDispatch();
-  const query = useSelector((state: RootState) => state.product.searchQuery);
+  const query = useSelector((state: RootState) => state.currencyReducer.filterQuery);
   const [searchTerm, setSearchTerm] = useState(query);
-
-  useProductData();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -20,7 +18,7 @@ export const SearchBarForm = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") {
-      dispatch(setSearchQuery(searchTerm));
+      dispatch(setFilterQuery(searchTerm));
     }
   };
 
@@ -30,12 +28,12 @@ export const SearchBarForm = () => {
       className={styles.container}
       onSubmit={handleSearch}
     >
-      <div className="input-group">
+      <div className={styles.input_group}>
         <input
           type="text"
           className="form-control"
           name="search"
-          placeholder="Buscar productos"
+          placeholder="Buscar"
           value={searchTerm}
           onChange={handleInputChange}
           required={true}
@@ -43,7 +41,7 @@ export const SearchBarForm = () => {
         />
 
         <div className={"input-group-append"}>
-          <button className={"btn btn-search"} type="submit">
+          <button className={styles.btn_search} type="submit">
             <FiSearch />
           </button>
         </div>

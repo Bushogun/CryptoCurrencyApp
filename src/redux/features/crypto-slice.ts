@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { initialStateCrypto } from "@/redux/initial-state";
 
 const currencySlice = createSlice({
-  name: "product",
+  name: "crypto",
   initialState: initialStateCrypto,
   reducers: {
     setFilterQuery: (state, action) => {

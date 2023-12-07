@@ -27,6 +27,10 @@
     }
 }
 
+.container_display:hover {
+    background-color: $color__gray--1;
+}
+
 @media screen and (min-width: 768px) {
     .container_display {
         font-size: 25px;
