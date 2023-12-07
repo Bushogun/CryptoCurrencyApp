@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './navbar.module.scss';
+import styles from '@/app/components/navbar/navbar.module.scss';
 /// <reference types="react" />
 /// <reference types="react-dom" />
 

@@ -1,17 +1,19 @@
-@use '../styles/colors.module.scss' as *;
+@use '../styles/colors.module.scss'as *;
 
-.background{
+.background {
     font-family: "Poppins", sans-serif;
 }
 
-.container_page{
-    margin:2% 20%;
+.container_page {
+    margin: 2% 20%;
+
     .container {
         display: flex;
         margin: auto;
         flex-direction: column;
         justify-content: center;
-        h1{
+
+        h1 {
             color: $color__text--primary;
             text-align: left;
             margin: auto;
@@ -20,12 +22,13 @@
         }
     }
 
-    .container_selectors{    
+    .container_selectors {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        h2{
+
+        h2 {
             color: $color__text--primary;
             margin-bottom: 2px;
             margin-right: auto;
@@ -34,33 +37,33 @@
         }
     }
 
-    .container_buttons{
+    .container_buttons {
         display: flex;
         padding-top: 5vh;
         align-items: center;
         justify-content: space-around;
     }
 
-    .button_convert{
+    .button_convert {
         background-color: $color__button--primary;
         color: $color__white;
-        border: none; 
-        border-radius: 4px; 
-        width: 150px; 
-        height: 40px; 
-        font-size: 20px; 
+        border: none;
+        border-radius: 4px;
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
         font-weight: 400;
-        padding: 8px 16px; 
-        cursor: pointer; 
+        padding: 8px 16px;
+        cursor: pointer;
         transition: background-color 0.3s ease;
-        text-align: center; 
-        text-decoration: none; 
-        display: inline-block; 
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
         width: 100%;
-        
+
     }
 
     .button_convert:hover {
-        background-color: $color__button--secondary; 
+        background-color: $color__button--secondary;
     }
 }

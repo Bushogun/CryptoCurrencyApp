@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './convertion-display.module.scss'
+import styles from '@/app/components/convertion-display/convertion-display.module.scss'
 
 const ConvertionDisplay = () => {
   return (

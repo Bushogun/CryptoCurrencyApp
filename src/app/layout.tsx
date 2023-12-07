@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import styles from '@/app/page.module.scss'
-import { Navbar } from './components/navbar/Navbar'
+import { Navbar } from '@/app/components/navbar/Navbar'
 import { Providers } from '@/redux/providers'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +19,6 @@ export default function RootLayout({
 }) {
   const bodyStyle = {
     margin: 0,
-    padding: 0
   };
 
   return (

@@ -1,7 +1,7 @@
-@use '../../../styles/colors.module.scss' as *;
+@use '../../../styles/colors.module.scss'as *;
 
-.custom_select{
-  width: 100%; 
+.custom_select {
+  width: 100%;
 }
 
 select.customSelect {
@@ -11,11 +11,11 @@ select.customSelect {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   border-radius: 4px;
-  width: 100%; 
+  width: 100%;
   outline: auto;
   transition: border-color 0.3s;
   cursor: pointer;
-  }
+}
 
 select.customSelect option {
   padding: 10px;

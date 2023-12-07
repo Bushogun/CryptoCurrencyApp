@@ -1,4 +1,4 @@
-import styles from './crypto-card.module.scss';
+import styles from '@/app/components/crypto-card/crypto-card.module.scss';
 
 const CryptoCard = () => {
   return (
@@ -15,11 +15,9 @@ const CryptoCard = () => {
             <p>+17.10% <span>7d</span> </p>
           </div>
         </div>
-
         <div className={styles.value}>
           <p>1 BTC = <span>$5000 USD</span></p>
         </div>
-
       </div>
     </div>
   );

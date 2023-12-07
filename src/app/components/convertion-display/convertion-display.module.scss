@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.container_display{
+.container_display {
     text-align: center;
     padding: 3vh;
     border: 2px solid #ddd;
@@ -17,11 +17,13 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
-    h3{
+
+    h3 {
         font-weight: 500;
-        span{
+
+        span {
             color: $color__text--tertiary;
-        }    
+        }
     }
 }
 
@@ -30,11 +32,13 @@
         font-size: 25px;
     }
 }
+
 @media screen and (max-width: 767px) and (min-width: 423px) {
     .container_display {
         font-size: 20px;
     }
 }
+
 @media screen and (max-width: 422px) {
     .container_display {
         font-size: 15px;

@@ -1,18 +1,19 @@
-@use '../../styles/colors.module.scss' as *;
+@use '../../styles/colors.module.scss'as *;
 
-.background{
+.background {
     font-family: "Poppins", sans-serif;
 }
 
 .container_page {
-    margin:2% 20%;
+    margin: 2% 20%;
+
     .container_cards {
         display: flex;
         margin: auto;
         flex-direction: column;
         justify-content: center;
 
-        h1{
+        h1 {
             color: $color__text--primary;
             text-align: left;
             margin: auto;
@@ -21,12 +22,13 @@
         }
     }
 
-    .container_selectors{    
+    .container_selectors {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        h2{
+
+        h2 {
             color: $color__text--secondary;
             margin-bottom: 2px;
             margin-right: auto;

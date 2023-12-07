@@ -1,0 +1,19 @@
+@use '../../../styles/colors.module.scss'as *;
+
+.container {
+    text-align: center;
+    display: flex;
+    width: 60%;
+
+    input {
+
+        padding: 10px 60px 10px 15px;
+        border: 1px solid $color__gray--4;
+        border-radius: 4px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+}

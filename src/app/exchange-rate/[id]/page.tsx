@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './exchage-rate-details.module.scss'
+import styles from '@/app/exchange-rate/[id]/exchage-rate-details.module.scss'
 
 const ExchangeRate = () => {
 
@@ -9,7 +9,7 @@ const ExchangeRate = () => {
         <h1>Exchange Rate:ID</h1>
       </div>
     </div>
-    )
+  )
 }
 
 export default ExchangeRate

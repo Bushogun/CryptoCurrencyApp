@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
-import styles from './page.module.scss';
+import styles from '@/app/page.module.scss';
 import CustomSelect from '@/app/components/custom-select';
 import ConvertionDisplay from '@/app/components/convertion-display'
 import { ICrypto } from '@/app/interfaces/i-crypto';
@@ -32,7 +32,7 @@ export default function Home() {
       </div>
       <div className={styles.container_selectors}>
         <h2>Currency I have</h2>
-          <CustomSelect crypto={cryptoData} />
+        <CustomSelect crypto={cryptoData} />
       </div>
       <div className={styles.container_selectors}>
         <h2>Currency I want</h2>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './exchange-rate.module.scss'
+import styles from '@/app/exchange-rate/exchange-rate.module.scss'
 import CryptoCard from '@/app/components/crypto-card'
 
 const ExchangeRate = () => {
@@ -14,7 +14,7 @@ const ExchangeRate = () => {
         <CryptoCard />
       </div>
     </div>
-    )
+  )
 }
 
 export default ExchangeRate
