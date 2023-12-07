@@ -1,0 +1,34 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { initialStateCrypto } from "@/redux/initial-state";
+
+const currencySlice = createSlice({
+  name: "product",
+  initialState: initialStateCrypto,
+  reducers: {
+    setFilterQuery: (state, action) => {
+      state.filterQuery = action.payload;
+    },
+    setCryptos: (state, action) => {
+      state.cryptos = action.payload;
+    },
+    setLimit: (state, action) => {
+      state.limit = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
+});
+
+export const {
+  setFilterQuery,
+  setCryptos,
+  setLimit,
+  setLoading,
+  setError,
+} = currencySlice.actions;
+
+export default currencySlice.reducer

@@ -1,4 +1,4 @@
-import { setLoading } from '@/redux/features/productSlice';
+import { setLoading } from '@/redux/features/crypto-slice';
 import type { AppDispatch } from "@/redux/store";
 
 const fetchData = async (url: string, dispatch: AppDispatch) => {

@@ -22,7 +22,7 @@ export const Navbar = () => {
             <ul>
                 <li>
                     <Link href="/exchange-rate">
-                        Exchange Rate
+                        Rate
                     </Link>
                 </li>
                 <li>

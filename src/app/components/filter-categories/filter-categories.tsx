@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './filter-categories.module.scss';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { capitalizeText } from '@/utils/string-utils';
-import { setProducts, setSelectCategory } from '@/redux/features/productSlice';
-import { setError } from '@/redux/features/productSlice';
+import { setProducts, setSelectCategory } from '@/redux/features/crypto-slice';
+import { setError } from '@/redux/features/crypto-slice';
 import { fetchProductsFiltered } from '@/utils/api-utils';
 
 export const Categories = () => {

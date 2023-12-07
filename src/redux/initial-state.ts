@@ -1,17 +1,15 @@
-// export interface StoreProduct {
-//     categories: [];
-//     products: [];
-//     selectCategory: string;
-//     selectProduct: string;
-//     loading: Boolean;
-//     error: string | null;
-//   }
-//   export const initialStateProductStore: StoreProduct = {
-//     categories: [],
-//     products: [],
-//     selectCategory: "All",
-//     selectProduct: "",
-//     loading: false,
-//     error: null,
-//   };
+export interface StoreCurrency{
+    filterQuery: string;
+    cryptos: [];
+    limit: number;
+    loading: Boolean;
+    error: string | null;
+  }
+  export const initialStateCrypto: StoreCurrency = {
+    filterQuery: "",
+    cryptos: [],
+    limit: 100,
+    loading: false,
+    error: null,
+  };
   

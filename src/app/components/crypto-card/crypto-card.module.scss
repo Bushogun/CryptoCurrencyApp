@@ -55,6 +55,9 @@
         font-weight: 500;
        p{
         margin: 15px 0px;
+        span{
+            color: $color__text--tertiary;
+        }
        }
     }
 

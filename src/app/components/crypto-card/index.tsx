@@ -17,7 +17,7 @@ const CryptoCard = () => {
         </div>
 
         <div className={styles.value}>
-          <p>1 BTC = $5000 USD</p>
+          <p>1 BTC = <span>$5000 USD</span></p>
         </div>
 
       </div>

@@ -6,7 +6,7 @@ const ConvertionDisplay = () => {
     <>
       <div className={styles.container}>
         <div className={styles.container_display}>
-          1 USD = 5000 COP
+          <h3>1 USD =  <span>5000 COP</span></h3>
         </div>
       </div>
     </>
