@@ -3,21 +3,23 @@ import styles from './crypto-card.module.scss';
 const CryptoCard = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.container_display}>
-        <h1>BTC</h1> 
-        <h3>Bitcoin</h3> 
-        <h2>1 BTC = $5000 USD</h2> 
-        <div className={styles.changes}>
-            <p>24h Change: +4.68%</p> 
-            <p>1h Change: +0.18%</p> 
-            <p>7d Change: +17.10%</p> 
+      <div className={styles.container_info}>
+        <div className={styles.basic_quote}>
+          <div className={styles.name}>
+            <h1>BTC</h1>
+            <h2>Bitcoin</h2>
+          </div>
+          <div className={styles.quote_status}>
+            <p>+4.68% <span>24h</span> </p>
+            <p>+0.18% <span>1h</span> </p>
+            <p>+17.10% <span>7d</span> </p>
+          </div>
         </div>
-        
-        <div className={styles.supplyInfo}>
-          <p>Available Supply: 19,470,946 BTC</p> 
-          <p>Total Supply: 19,470,946 BTC</p> 
-          <p>Max Supply: 21,000,000 BTC</p> 
+
+        <div className={styles.value}>
+          <p>1 BTC = $5000 USD</p>
         </div>
+
       </div>
     </div>
   );

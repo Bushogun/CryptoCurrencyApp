@@ -9,6 +9,9 @@ const ExchangeRate = () => {
       <div className={styles.container_cards}>
         <h1>Exchange Rate</h1>
         <CryptoCard />
+        <CryptoCard />
+        <CryptoCard />
+        <CryptoCard />
       </div>
     </div>
     )

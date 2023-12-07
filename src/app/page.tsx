@@ -39,14 +39,12 @@ export default function Home() {
         <CustomSelect crypto={cryptoData} />
       </div>
       <div className={styles.container_buttons}>
-        <button className={styles.button_select}><FaArrowRightArrowLeft /> Convert</button>
+        <button className={styles.button_convert}><FaArrowRightArrowLeft /> Convert</button>
       </div>
       <div className={styles.container}>
         <ConvertionDisplay />
       </div>
-      <div className={styles.container}>
-        USD to BDT conversion chart:
-      </div>
+
     </div>
   );
 }

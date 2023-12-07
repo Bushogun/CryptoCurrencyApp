@@ -1,6 +1,5 @@
 @use '../styles/colors.module.scss' as *;
 
-
 .background{
     font-family: "Poppins", sans-serif;
 }
@@ -14,9 +13,9 @@
         justify-content: center;
         h1{
             color: $color__text--primary;
-            text-align: center;
+            text-align: left;
             margin: auto;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 3em;
         }
     }
@@ -27,11 +26,11 @@
         flex-direction: column;
         align-items: center;
         h2{
-            color: $color__text--secondary;
+            color: $color__text--primary;
             margin-bottom: 2px;
             margin-right: auto;
-            font-weight: 300;
-            font-size: 1.4em;
+            font-weight: 400;
+            font-size: 1.8em;
         }
     }
 
@@ -42,7 +41,7 @@
         justify-content: space-around;
     }
 
-    .button_select{
+    .button_convert{
         background-color: $color__button--primary;
         color: $color__white;
         border: none; 
@@ -58,10 +57,10 @@
         text-decoration: none; 
         display: inline-block; 
         width: 100%;
-
+        
     }
 
-    .button_select:hover {
+    .button_convert:hover {
         background-color: $color__button--secondary; 
     }
 }

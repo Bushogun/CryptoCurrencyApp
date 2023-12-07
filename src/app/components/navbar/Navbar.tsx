@@ -21,8 +21,8 @@ export const Navbar = () => {
             </Link>
             <ul>
                 <li>
-                    <Link href="/crud">
-                        CRUD
+                    <Link href="/exchange-rate">
+                        Exchange Rate
                     </Link>
                 </li>
                 <li>

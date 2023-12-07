@@ -1,19 +1,23 @@
 @use '../../styles/colors.module.scss' as *;
 
+.background{
+    font-family: "Poppins", sans-serif;
+}
 
-.container_page{
+.container_page {
     margin:2% 20%;
     .container_cards {
         display: flex;
         margin: auto;
         flex-direction: column;
         justify-content: center;
+
         h1{
             color: $color__text--primary;
             text-align: left;
             margin: auto;
-            font-weight: 400;
-            font-size: 2em;
+            font-weight: 500;
+            font-size: 3em;
         }
     }
 

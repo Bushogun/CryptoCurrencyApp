@@ -9,93 +9,6 @@
   color: $color__white;
   background: $color__background--navbar;
 
-  a,
-  a::after {
-    padding: 5px 15px;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: transparent;
-    position: relative;
-  }
-
-  a:hover::after {
-    animation: glitch_4011 1s;
-    text-shadow: 10 10px 10px black;
-    animation-timing-function: steps(2, end);
-    text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
-    background-color: transparent;
-    border: 2px solid rgb(0, 255, 213);
-  }
-
-  a:hover {
-    text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
-  }
-
-  a:hover {
-    background-color: transparent;
-    border: 1px solid $color__green;
-    box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
-  }
-
-  @keyframes glitch_4011 {
-    0% {
-      clip-path: var(--move1);
-      transform: translate(0px, -10px);
-    }
-
-    10% {
-      clip-path: var(--move2);
-      transform: translate(-10px, 10px);
-    }
-
-    20% {
-      clip-path: var(--move3);
-      transform: translate(10px, 0px);
-    }
-
-    30% {
-      clip-path: var(--move4);
-      transform: translate(-10px, 10px);
-    }
-
-    40% {
-      clip-path: var(--move5);
-      transform: translate(10px, -10px);
-    }
-
-    50% {
-      clip-path: var(--move6);
-      transform: translate(-10px, 10px);
-    }
-
-    60% {
-      clip-path: var(--move1);
-      transform: translate(10px, -10px);
-    }
-
-    70% {
-      clip-path: var(--move3);
-      transform: translate(-10px, 10px);
-    }
-
-    80% {
-      clip-path: var(--move2);
-      transform: translate(10px, -10px);
-    }
-
-    90% {
-      clip-path: var(--move4);
-      transform: translate(-10px, 10px);
-    }
-
-    100% {
-      clip-path: var(--move1);
-      transform: translate(0);
-    }
-  }
-
   img {
     display: block;
     margin: 0 auto;
@@ -104,13 +17,17 @@
   }
 
   ul {
+    list-style: none;
     display: flex;
     align-items: center;
   }
 
   a {
+    margin-left: 20px;
     font-size: 1.2em;
     font-weight: 600;
+    color:$color__white;
+    text-decoration: none;
   }
 
   a:hover {
