@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/app/components/convertion-display/convertion-display.module.scss';
-import { formatNumber } from '@/utils/number-utils'; // Importa la función de utilidad
+import { formatNumber } from '@/utils/number-utils'; 
 
 const ConvertionDisplay = ({ currencyIHave, currencyIWant, conversionRate }: {
   currencyIHave: string,

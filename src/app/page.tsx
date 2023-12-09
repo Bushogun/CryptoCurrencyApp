@@ -52,7 +52,6 @@ export default function Home() {
     dispatch(setLoading(false));
     return conversionRate;
   }
-  
 
   const handleConversion = () => {
     if (cryptoIHave && cryptoIWant && cryptos) {

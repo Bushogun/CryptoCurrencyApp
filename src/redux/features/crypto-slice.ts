@@ -17,6 +17,9 @@ const currencySlice = createSlice({
     setCryptos: (state, action) => {
       state.cryptos = action.payload;
     },
+    setSpecificCrypto: (state, action) => {
+      state.specificCrypto = action.payload;
+    },
     setLimit: (state, action) => {
       state.limit = action.payload;
     },
@@ -34,6 +37,7 @@ export const {
   setCurrencyIWant,
   setFilterQuery,
   setCryptos,
+  setSpecificCrypto,
   setLimit,
   setLoading,
   setError,
