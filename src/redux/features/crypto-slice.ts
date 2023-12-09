@@ -5,6 +5,12 @@ const currencySlice = createSlice({
   name: "crypto",
   initialState: initialStateCrypto,
   reducers: {
+    setCurrencyIHave: (state, action) => {
+      state.currencyIHave = action.payload;
+    },
+    setCurrencyIWant: (state, action) => {
+      state.currencyIWant = action.payload;
+    },
     setFilterQuery: (state, action) => {
       state.filterQuery = action.payload;
     },
@@ -24,6 +30,8 @@ const currencySlice = createSlice({
 });
 
 export const {
+  setCurrencyIHave,
+  setCurrencyIWant,
   setFilterQuery,
   setCryptos,
   setLimit,

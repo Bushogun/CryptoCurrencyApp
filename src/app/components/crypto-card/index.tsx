@@ -1,4 +1,5 @@
 import styles from '@/app/components/crypto-card/crypto-card.module.scss';
+// import ICrypto from '@/app/interfaces/i-crypto'
 
 const CryptoCard = () => {
   return (

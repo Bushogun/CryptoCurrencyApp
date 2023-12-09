@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { ICrypto, Datum } from '@/app/interfaces/i-crypto';
-import styles from '@/app/components/custom-select/custom-select.module.scss'
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { ICrypto } from '@/app/interfaces/i-crypto';
+import styles from '@/app/components/custom-select/custom-select.module.scss';
+import { setCurrencyIHave, setCurrencyIWant } from '@/redux/features/crypto-slice';
 
 interface Props {
-  crypto: ICrypto;
+  crypto: ICrypto[] | undefined;
+  type: 'currencyIHave' | 'currencyIWant'; 
 }
 
-const CustomSelect: React.FC<Props> = ({ crypto }) => {
+const CustomSelect: React.FC<Props> = ({ crypto, type }) => {
+  const dispatch = useAppDispatch();
+
   const [selectedOption, setSelectedOption] = useState<string>('');
-  const [cryptoData, setCryptoData] = useState<Datum[]>([]);
 
   useEffect(() => {
-    setCryptoData(crypto.data || []);
+    if (crypto) {
+      setSelectedOption(''); 
+    }
   }, [crypto]);
 
   const handleOptionSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
+    const selectedValue = event.target.value;
+    setSelectedOption(selectedValue);
+
+    if (type === 'currencyIHave') {
+      dispatch(setCurrencyIHave(selectedValue));
+    } else if (type === 'currencyIWant') {
+      dispatch(setCurrencyIWant(selectedValue));
+    }
   };
 
   return (
@@ -26,7 +39,7 @@ const CustomSelect: React.FC<Props> = ({ crypto }) => {
         className={styles.customSelect}
       >
         <option value="">Selecciona una opción</option>
-        {cryptoData.map((cryptoItem, index) => (
+        {crypto?.map((cryptoItem, index) => (
           <option key={index} value={cryptoItem.name}>
             {cryptoItem.name}
           </option>

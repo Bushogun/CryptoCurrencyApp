@@ -13,9 +13,6 @@ const ExchangeRate = () => {
           <SearchBarForm />
         </div>
         <CryptoCard />
-        <CryptoCard />
-        <CryptoCard />
-        <CryptoCard />
       </div>
     </div>
   )
