@@ -1,16 +1,28 @@
-import React from 'react'
-import styles from '@/app/components/convertion-display/convertion-display.module.scss'
+import React from 'react';
+import styles from '@/app/components/convertion-display/convertion-display.module.scss';
+import { formatNumber } from '@/utils/number-utils'; // Importa la función de utilidad
 
-const ConvertionDisplay = () => {
+const ConvertionDisplay = ({ currencyIHave, currencyIWant, conversionRate }: {
+  currencyIHave: string,
+  currencyIWant: string,
+  conversionRate: number | null
+}) => {
+  const displayValue = conversionRate ? `1 ${currencyIHave} = ${formatNumber(conversionRate)} ${currencyIWant}` : 'Result';
+
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(displayValue);
+    alert('Conversion copied to clipboard!');
+  };
+
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} onClick={handleCopyToClipboard} style={{ cursor: 'pointer' }}>
         <div className={styles.container_display}>
-          <h3>1 USD =  <span>5000 COP</span></h3>
+          <h3>{displayValue}</h3>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ConvertionDisplay
+export default ConvertionDisplay;

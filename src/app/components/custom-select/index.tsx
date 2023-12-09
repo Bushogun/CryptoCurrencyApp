@@ -38,7 +38,7 @@ const CustomSelect: React.FC<Props> = ({ crypto, type }) => {
         onChange={handleOptionSelect}
         className={styles.customSelect}
       >
-        <option value="">Selecciona una opción</option>
+        <option value="">Select an option</option>
         {crypto?.map((cryptoItem, index) => (
           <option key={index} value={cryptoItem.name}>
             {cryptoItem.name}
