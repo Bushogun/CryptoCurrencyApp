@@ -11,6 +11,7 @@ import { ICrypto } from '@/app/interfaces/i-crypto';
 const ExchangeRate = () => {
   const dispatch = useAppDispatch();
   const cryptos = useAppSelector((state) => state.currencyReducer.cryptos?.data);
+  const filterQuery = useAppSelector((state) => state.currencyReducer.filterQuery);
   const loading = useAppSelector((state) => state.currencyReducer.loading);
   const error = useAppSelector((state) => state.currencyReducer.error);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
@@ -30,26 +31,33 @@ const ExchangeRate = () => {
       );
   }, []);
 
+  const filteredCryptos = cryptos?.filter((crypto: ICrypto) => {
+    return (
+      crypto.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+      crypto.symbol.toLowerCase().includes(filterQuery.toLowerCase())
+    );
+  });
+
   return (
     <>
-    {loading ? (
-      <LoadingSpinner/>
-    ) : error ? (
-      <p>Error: {error}</p>
-    ) : (
-      <div className={styles.container_page}>
-        <div className={styles.container_cards}>
-          <h1>Exchange Rate</h1>
-          <div className={styles.container_search_bar}>
-            <SearchBarForm />
+      {loading ? (
+        <LoadingSpinner />
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <div className={styles.container_page}>
+          <div className={styles.container_cards}>
+            <h1>Exchange Rate</h1>
+            <div className={styles.container_search_bar}>
+              <SearchBarForm />
+            </div>
+            {filteredCryptos?.map((crypto: ICrypto) => (
+              <CryptoCard key={crypto.id} crypto={crypto} />
+            ))}
           </div>
-          {cryptos && cryptos.map((crypto: ICrypto) => (
-            <CryptoCard key={crypto.id} crypto={crypto} />
-          ))}
         </div>
-      </div>
-    )}    
-  </>
+      )}
+    </>
   );
 };
 

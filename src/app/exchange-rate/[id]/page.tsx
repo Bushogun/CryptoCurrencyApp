@@ -43,18 +43,18 @@ const ExchangeRate = (params: any) => {
           <div className={styles.container_cards}>
             <div className={styles.basic_quote}>
               <div className={styles.name}>
-                <h1>{specificCrypto?.name || ''}</h1>
-                <h2>{specificCrypto?.symbol || 'loading...'}</h2>
+                <h1>{specificCrypto?.name || 'Is not avalible'}</h1>
+                <h2>{specificCrypto?.symbol || 'Is not avalible'}</h2>
               </div>
               <div className={styles.quote_status}>
-                <p>Price USD: {specificCrypto?.price_usd || 'loading...'}</p>
-                <p> <small>Change 24h</small>: {specificCrypto?.percent_change_24h || 'loading...'}%</p>
-                <p> <small>Change 1h</small>: {specificCrypto?.percent_change_1h || 'loading...'}%</p>
-                <p> <small>Change 7d</small>: {specificCrypto?.percent_change_7d || 'loading...'}%</p>
+                <p>Price USD: {specificCrypto?.price_usd || 'Is not avalible'}</p>
+                <p> <small>Change 24h</small>: {specificCrypto?.percent_change_24h || 'Is not avalible'}%</p>
+                <p> <small>Change 1h</small>: {specificCrypto?.percent_change_1h || 'Is not avalible'}%</p>
+                <p> <small>Change 7d</small>: {specificCrypto?.percent_change_7d || 'Is not avalible'}%</p>
               </div>
             </div>
             <div className={styles.value}>
-              <p>Market Cap USD: {specificCrypto?.market_cap_usd || 'loading...'}</p>
+              <p>Market Cap USD: {specificCrypto?.market_cap_usd || 'Is not avalible'}</p>
             </div>
             <div className={styles.supply}>
               <p><span>Current Supply: <br/> </span>{specificCrypto?.csupply || ''}</p>
