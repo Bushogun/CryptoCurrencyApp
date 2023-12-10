@@ -5,7 +5,7 @@
 }
 
 .container_page {
-    margin: 15% 28% 5% 28%;
+    margin: 10% 28% 5% 28%;
     padding: 50px;
     box-shadow: -10px 12px 10px 3px $color__gray--1;
     border-radius: 24px;
@@ -62,7 +62,6 @@
         p {
             margin: 5px 0px;
             text-align: center;
-
             span {
                 color: $color__text--tertiary;
             }
@@ -84,7 +83,9 @@
         font-weight: 200;
         text-align: center;
         font-weight: 500;
+        margin: auto;
         p{
+            width: 200px;
             margin: 0px;
         }
     }

@@ -20,6 +20,9 @@ const currencySlice = createSlice({
     setSpecificCrypto: (state, action) => {
       state.specificCrypto = action.payload;
     },
+    setItemsPerPage: (state, action) => {
+      state.itemsPerPage = action.payload;
+    },
     setLimit: (state, action) => {
       state.limit = action.payload;
     },
@@ -38,6 +41,7 @@ export const {
   setFilterQuery,
   setCryptos,
   setSpecificCrypto,
+  setItemsPerPage,
   setLimit,
   setLoading,
   setError,

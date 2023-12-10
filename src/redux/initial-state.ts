@@ -7,6 +7,7 @@ export interface StoreCurrency {
   filterQuery: string;
   cryptos: ApiResponse | undefined; 
   specificCrypto: ICrypto | undefined; 
+  itemsPerPage: number,
   limit: number;
   loading: boolean;
   error: string | null;
@@ -18,6 +19,7 @@ export const initialStateCrypto: StoreCurrency = {
   filterQuery: '',
   cryptos: undefined, 
   specificCrypto: undefined,
+  itemsPerPage: 10,
   limit: 100,
   loading: false,
   error: null,

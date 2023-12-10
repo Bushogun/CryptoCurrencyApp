@@ -37,7 +37,7 @@ export const SearchBarForm = () => {
           value={searchTerm}
           onChange={handleInputChange}
           required={true}
-          alt="search product"
+          alt="search coin"
         />
 
         <div className={"input-group-append"}>
