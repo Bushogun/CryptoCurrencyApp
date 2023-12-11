@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -21,6 +21,11 @@ export const SearchBarForm = () => {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      dispatch(setFilterQuery(''));
+    };
+  }, [dispatch]);
   return (
     <form
       aria-label="form-search"

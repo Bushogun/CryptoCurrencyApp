@@ -24,7 +24,7 @@ import LoadingSpinner from '@/app/components/loading-spinner/loading-spinner';
         dispatch(setSpecificCrypto(data[0]));
         dispatch(setLoading(false));
       } catch (error) {
-        dispatch(setError('Hubo un error en la conexión: ' + error));
+        dispatch(setError('We have a trouble with the conection ' + error));
         dispatch(setLoading(false));
       }
     };

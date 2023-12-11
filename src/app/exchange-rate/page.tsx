@@ -27,9 +27,13 @@ const ExchangeRate = () => {
         dispatch(setLoading(false));
       })
       .catch((error) =>
-        dispatch(setError('We have a trouble with the conection' + error), setLoading(false))
+        dispatch(setError('We have a trouble with the conection ' + error), setLoading(false))
       );
+    return () => {
+      dispatch(setCryptos('')); 
+    };
   }, []);
+  
 
   const filteredCryptos = cryptos?.filter((crypto: ICrypto) => {
     return (
