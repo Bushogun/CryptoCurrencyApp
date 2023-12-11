@@ -45,6 +45,33 @@
     }
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 2em;
+  }
+  
+  .button_pagination {
+    background-color: $color__button--primary;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  .button_pagination:hover {
+    background-color: $color__button--primary;
+  }
+  
+  .button_pagination.selected {
+    background-color: $color__button--primary;
+  }
+
+
 @media screen and (max-width: 767px) and (min-width: 423px) {
     .container-page {
         margin: 5% 15%;
