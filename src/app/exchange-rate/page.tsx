@@ -45,10 +45,10 @@ const ExchangeRate = () => {
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        <div className={styles.container_page}>
-          <div className={styles.container_cards}>
+        <div className={styles['container-page']}>
+          <div className={styles['container-cards']}>
             <h1>Exchange Rate</h1>
-            <div className={styles.container_search_bar}>
+            <div className={styles['container-search-bar']}>
               <SearchBarForm />
             </div>
             {filteredCryptos?.map((crypto: ICrypto) => (

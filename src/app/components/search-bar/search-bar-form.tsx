@@ -28,7 +28,7 @@ export const SearchBarForm = () => {
       className={styles.container}
       onSubmit={handleSearch}
     >
-      <div className={styles.input_group}>
+      <div className={styles['input-group']}>
         <input
           type="text"
           className="form-control"
@@ -41,7 +41,7 @@ export const SearchBarForm = () => {
         />
 
         <div className={"input-group-append"}>
-          <button className={styles.btn_search} type="submit">
+          <button className={styles['btn-search']} type="submit">
             <FiSearch />
           </button>
         </div>

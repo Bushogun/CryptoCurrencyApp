@@ -1,10 +1,10 @@
 @use '../../../styles/colors.module.scss'as *;
 
-.custom_select {
+.custom-select {
   width: 100%;
 }
 
-select.customSelect {
+select.custom-select {
   padding: 10px;
   font-size: 22px;
   color: $color__gray--2;
@@ -17,7 +17,7 @@ select.customSelect {
   cursor: pointer;
 }
 
-select.customSelect option {
+select.custom-select option {
   padding: 10px;
   font-size: 22px;
   color: $color__gray--3;
@@ -25,6 +25,6 @@ select.customSelect option {
   cursor: pointer;
 }
 
-select.customSelect option:checked {
+select.custom-select option:checked {
   color: $color__text--secondary;
 }

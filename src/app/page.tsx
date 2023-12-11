@@ -15,13 +15,13 @@ interface ConversionData {
 export default function Home() {
   const dispatch = useAppDispatch();
   const [conversionResult, setConversionResult] = useState<number | null>(null);
+  const [conversionData, setConversionData] = useState<ConversionData>({ currencyIHave: '', currencyIWant: '' });
   const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
   const requestCryptos = process.env.NEXT_PUBLIC_REQUEST_CRYPTOS!;
-  const endPoint = apiUrl + requestCryptos
+  const endPoint = apiUrl + requestCryptos;
   const cryptos = useAppSelector((state) => state.currencyReducer.cryptos?.data);
   const cryptoIHave = useAppSelector((state) => state.currencyReducer.currencyIHave);
   const cryptoIWant = useAppSelector((state) => state.currencyReducer.currencyIWant);
-  const [conversionData, setConversionData] = useState<ConversionData>({ currencyIHave: '', currencyIWant: '' });
 
 
   useEffect(() => {
@@ -72,20 +72,20 @@ export default function Home() {
   };
   
   return (
-    <div className={styles.container_page}>
+    <div className={styles['container-page']}>
       <div className={styles.container}>
         <h1>Currency converter</h1>
       </div>
-      <div className={styles.container_selectors}>
+      <div className={styles['container-selectors']}>
           <h2>Currency I have</h2>
           <CustomSelect crypto={cryptos} type="currencyIHave"/>
         </div>
-        <div className={styles.container_selectors}>
+        <div className={styles['container-selectors']}>
           <h2>Currency I want</h2>
           <CustomSelect crypto={cryptos} type="currencyIWant"/>
         </div>
-      <div className={styles.container_buttons}>
-        <button className={styles.button_convert} onClick={handleConversion}><FaArrowRightArrowLeft /> Convert</button>
+      <div className={styles['container-buttons']}>
+        <button className={styles['button-convert']} onClick={handleConversion}><FaArrowRightArrowLeft /> Convert</button>
       </div>
       <div className={styles.container}>
         <ConvertionDisplay

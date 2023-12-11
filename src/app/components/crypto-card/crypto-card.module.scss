@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 
-.container_info {
+.container-info {
     text-align: left;
     padding: 1vh;
     border: 2px solid #ddd;
@@ -19,7 +19,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
 
-    .basic_quote {
+    .basic-quote {
         display: flex;
         justify-content: space-evenly;
 
@@ -35,7 +35,7 @@
             }
         }
 
-        .quote_status {
+        .quote-status {
             display: grid;
             grid-template-columns: 1fr;
             align-items: center;
@@ -69,6 +69,6 @@
     }
 }
 
-.container_info:hover {
+.container-info:hover {
     background-color: $color__gray--1;
 }

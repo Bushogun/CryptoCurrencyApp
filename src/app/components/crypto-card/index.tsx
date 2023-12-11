@@ -15,13 +15,13 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
         href={`/exchange-rate/${crypto.id}`}
         className={styles.container}
       >
-        <div className={styles.container_info}>
-          <div className={styles.basic_quote}>
+        <div className={styles['container-info']}>
+          <div className={styles['basic-quote']}>
             <div className={styles.name}>
               <h1>{crypto.symbol}</h1>
               <h2>{crypto.name}</h2>
             </div>
-            <div className={styles.quote_status}>
+            <div className={styles['quote-status']}>
               <p>{`${crypto.percent_change_24h}%`} <span>24h</span> </p>
               <p>{`${crypto.percent_change_1h}%`} <span>1h</span> </p>
               <p>{`${crypto.percent_change_7d}%`} <span>7d</span> </p>

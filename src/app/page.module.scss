@@ -4,7 +4,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.container_page {
+.container-page {
     margin: 5% 28%;
     padding: 50px;
     box-shadow: -10px 12px 10px 3px $color__gray--1;
@@ -24,7 +24,7 @@
         }
     }
 
-    .container_selectors {
+    .container-selectors {
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -38,14 +38,14 @@
         }
     }
 
-    .container_buttons {
+    .container-buttons {
         display: flex;
         padding-top: 5vh;
         align-items: center;
         justify-content: space-around;
     }
 
-    .button_convert {
+    .button-convert {
         background-color: $color__button--primary;
         color: $color__white;
         border: none;
@@ -64,23 +64,23 @@
         
     }
 
-    .button_convert:hover {
+    .button-convert:hover {
         background-color: $color__button--secondary;
     }
-    .button_convert:active {
+    .button-convert:active {
         background-color: $color__button--active;
     }
 }
     
 @media screen and (max-width: 767px) and (min-width: 423px) {
-    .container_page {
+    .container-page {
         margin: 5% 15%;
         padding: 44px;
     }
 }
 
 @media screen and (max-width: 422px) {
-    .container_page {
+    .container-page {
         margin: 5% 5%;
         padding: 33px;
         box-shadow: none;

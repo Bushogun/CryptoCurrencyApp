@@ -17,7 +17,7 @@ const ConvertionDisplay = ({ currencyIHave, currencyIWant, conversionRate }: {
   return (
     <>
       <div className={styles.container} onClick={handleCopyToClipboard} style={{ cursor: 'pointer' }}>
-        <div className={styles.container_display}>
+        <div className={styles['container-display']}>
           <h3>{displayValue}</h3>
         </div>
       </div>

@@ -39,14 +39,14 @@ const ExchangeRate = (params: any) => {
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        <div className={styles.container_page}>
-          <div className={styles.container_cards}>
-            <div className={styles.basic_quote}>
+        <div className={styles['container-page']}>
+          <div className={styles['container-cards']}>
+            <div className={styles['basic-quote']}>
               <div className={styles.name}>
                 <h1>{specificCrypto?.name || 'Is not avalible'}</h1>
                 <h2>{specificCrypto?.symbol || 'Is not avalible'}</h2>
               </div>
-              <div className={styles.quote_status}>
+              <div className={styles['quote-status']}>
                 <p>Price USD: {specificCrypto?.price_usd || 'Is not avalible'}</p>
                 <p> <small>Change 24h</small>: {specificCrypto?.percent_change_24h || 'Is not avalible'}%</p>
                 <p> <small>Change 1h</small>: {specificCrypto?.percent_change_1h || 'Is not avalible'}%</p>
