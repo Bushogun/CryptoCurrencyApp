@@ -32,7 +32,7 @@ export const SearchBarForm = () => {
           type="text"
           className="form-control"
           name="search"
-          placeholder="Buscar"
+          placeholder="Search"
           value={query}
           onChange={handleInputChange}
           required={true}
