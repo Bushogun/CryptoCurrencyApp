@@ -1,11 +1,11 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '@/app/exchange-rate/[id]/exchage-rate-details.module.scss';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { setError, setLoading, setSpecificCrypto } from '@/redux/features/crypto-slice'
 import LoadingSpinner from '@/app/components/loading-spinner/loading-spinner';
-
-const ExchangeRate = (params: any) => {
+  
+  const ExchangeRate = (params: any) => {
   const dispatch = useAppDispatch();
   const specificCrypto = useAppSelector((state) => state.currencyReducer.specificCrypto);
   const loading = useAppSelector((state) => state.currencyReducer.loading);
