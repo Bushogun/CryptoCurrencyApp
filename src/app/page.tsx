@@ -7,6 +7,11 @@ import CustomSelect from '@/app/components/custom-select';
 import ConvertionDisplay from '@/app/components/convertion-display'
 import { setCryptos, setLoading, setError } from '@/redux/features/crypto-slice';
 
+interface ConversionData {
+  currencyIHave: string;
+  currencyIWant: string;
+}
+
 export default function Home() {
   const dispatch = useAppDispatch();
   const [conversionResult, setConversionResult] = useState<number | null>(null);
@@ -16,6 +21,8 @@ export default function Home() {
   const cryptos = useAppSelector((state) => state.currencyReducer.cryptos?.data);
   const cryptoIHave = useAppSelector((state) => state.currencyReducer.currencyIHave);
   const cryptoIWant = useAppSelector((state) => state.currencyReducer.currencyIWant);
+  const [conversionData, setConversionData] = useState<ConversionData>({ currencyIHave: '', currencyIWant: '' });
+
 
   useEffect(() => {
     dispatch(setLoading(true));
@@ -35,8 +42,9 @@ export default function Home() {
     const fromCrypto = cryptosData.find((crypto) => crypto.name === cryptoFrom);
     const toCrypto = cryptosData.find((crypto) => crypto.name === cryptoTo);
 
+
     if (!fromCrypto || !toCrypto) {
-      console.error('Una o ambas criptomonedas no se encontraron en los datos.');
+      dispatch(setError('Una o ambas criptomonedas no se encontraron en los datos.'));
       return null;
     }
   
@@ -44,7 +52,7 @@ export default function Home() {
     const toPriceUSD = parseFloat(toCrypto.price_usd);
   
     if (isNaN(fromPriceUSD) || isNaN(toPriceUSD)) {
-      console.error('Error al convertir el precio a número.');
+      dispatch(setError('Error al convertir el precio a número.'));
       return null;
     }
   
@@ -57,6 +65,7 @@ export default function Home() {
     if (cryptoIHave && cryptoIWant && cryptos) {
       const rate = calculateConversionRate(cryptoIHave, cryptoIWant, cryptos);
       setConversionResult(rate);
+      setConversionData({ currencyIHave: cryptoIHave, currencyIWant: cryptoIWant });
     } else {
       dispatch(setError('Error al obtener los datos de las criptomonedas o los nombres seleccionados.'), setLoading(false))
     }
@@ -80,9 +89,9 @@ export default function Home() {
       </div>
       <div className={styles.container}>
         <ConvertionDisplay
-          currencyIHave={cryptoIHave}
-          currencyIWant={cryptoIWant}
-          conversionRate={conversionResult}
+            currencyIHave={conversionData.currencyIHave}
+            currencyIWant={conversionData.currencyIWant}
+            conversionRate={conversionResult}
         />
     </div>
     </div>
