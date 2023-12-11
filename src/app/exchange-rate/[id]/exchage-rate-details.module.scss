@@ -96,6 +96,9 @@
     .container-page {
         margin: 5% 15%;
         padding: 44px;
+        .basic-quote{
+            flex-direction: column;
+        }
     }
 }
 
@@ -104,5 +107,8 @@
         margin: 5% 5%;
         padding: 33px;
         box-shadow: none;
+        .basic-quote{
+            flex-direction: column;
+        }
     }
 }
