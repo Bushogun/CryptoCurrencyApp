@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React from "react";
 import { FiSearch } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -9,16 +9,15 @@ import styles from "@/app/components/search-bar/search-bar-form.module.scss";
 export const SearchBarForm = () => {
   const dispatch = useDispatch();
   const query = useSelector((state: RootState) => state.currencyReducer.filterQuery);
-  const [searchTerm, setSearchTerm] = useState(query);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    const searchTerm = e.target.value;
+    dispatch(setFilterQuery(searchTerm));
   };
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (searchTerm.trim() !== "") {
-      dispatch(setFilterQuery(searchTerm));
+    if (query.trim() !== "") {
     }
   };
 
@@ -34,7 +33,7 @@ export const SearchBarForm = () => {
           className="form-control"
           name="search"
           placeholder="Buscar"
-          value={searchTerm}
+          value={query}
           onChange={handleInputChange}
           required={true}
           alt="search coin"
