@@ -7,13 +7,14 @@ import  LoadingSpinner  from '@/app/components/loading-spinner/loading-spinner';
 import { SearchBarForm } from '@/app/components/search-bar/search-bar-form';
 import { setCryptos, setError, setLoading } from '@/redux/features/crypto-slice';
 import { ICrypto } from '@/app/interfaces/i-crypto';
+import { RootState } from '@/redux/store';
 
 const ExchangeRate = () => {
   const dispatch = useAppDispatch();
-  const cryptos = useAppSelector((state) => state.currencyReducer.cryptos?.data);
-  const filterQuery = useAppSelector((state) => state.currencyReducer.filterQuery);
-  const loading = useAppSelector((state) => state.currencyReducer.loading);
-  const error = useAppSelector((state) => state.currencyReducer.error);
+  const cryptos = useAppSelector((state: RootState) => state.crypto.cryptos);
+  const filterQuery = useAppSelector((state: RootState) => state.crypto.filterQuery);
+  const loading = useAppSelector((state: RootState) => state.crypto.loading);
+  const error = useAppSelector((state: RootState) => state.crypto.error);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
   const requestCryptos = process.env.NEXT_PUBLIC_REQUEST_CRYPTOS!;
   const endPoint = apiUrl + requestCryptos;
@@ -26,21 +27,24 @@ const ExchangeRate = () => {
         dispatch(setCryptos(data));
         dispatch(setLoading(false));
       })
-      .catch((error) =>
-        dispatch(setError('We have a trouble with the conection ' + error), setLoading(false))
-      );
+      .catch((error) => {
+        dispatch(setError('Hubo un error en la conexión: ' + error));
+        dispatch(setLoading(true));
+      });
     return () => {
       dispatch(setCryptos('')); 
     };
   }, []);
   
 
-  const filteredCryptos = cryptos?.filter((crypto: ICrypto) => {
-    return (
-      crypto.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
-      crypto.symbol.toLowerCase().includes(filterQuery.toLowerCase())
-    );
-  });
+  const filteredCryptos = cryptos && cryptos.data
+  ? cryptos.data.filter((crypto: ICrypto) => {
+      return (
+        crypto.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+        crypto.symbol.toLowerCase().includes(filterQuery.toLowerCase())
+      );
+    })
+  : [];
 
   return (
     <div className={styles.listContainer}>

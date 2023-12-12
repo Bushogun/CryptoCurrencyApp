@@ -8,7 +8,7 @@ import styles from "@/app/components/search-bar/search-bar-form.module.scss";
 
 export const SearchBarForm = () => {
   const dispatch = useDispatch();
-  const query = useSelector((state: RootState) => state.currencyReducer.filterQuery);
+  const query = useSelector((state: RootState) => state.crypto.filterQuery);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
@@ -29,7 +29,7 @@ export const SearchBarForm = () => {
   return (
     <form
       aria-label="form-search"
-      className={styles.container}
+      className={styles['container']}
       onSubmit={handleSearch}
     >
       <div className={styles['input-group']}>

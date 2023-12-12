@@ -4,12 +4,13 @@ import styles from '@/app/exchange-rate/[id]/exchage-rate-details.module.scss';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { setError, setLoading, setSpecificCrypto } from '@/redux/features/crypto-slice'
 import LoadingSpinner from '@/app/components/loading-spinner/loading-spinner';
+import { RootState } from '@/redux/store';
   
   const ExchangeRate = (params: any) => {
   const dispatch = useAppDispatch();
-  const specificCrypto = useAppSelector((state) => state.currencyReducer.specificCrypto);
-  const loading = useAppSelector((state) => state.currencyReducer.loading);
-  const error = useAppSelector((state) => state.currencyReducer.error);
+  const specificCrypto = useAppSelector((state: RootState) => state.crypto.specificCrypto);
+  const loading = useAppSelector((state: RootState) => state.crypto.loading);
+  const error = useAppSelector((state: RootState) => state.crypto.error);
 
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
