@@ -11,9 +11,9 @@ describe('CustomSelect component', () => {
   const cryptoData = [
     {
         id: "80",
-        symbol: "ETH",
-        name: "Ethereum",
-        nameid: "ethereum",
+        symbol: "BTC",
+        name: "Bitcoin",
+        nameid: "Bitcoin",
         rank: 2,
         price_usd: "2185.05",
         percent_change_24h: "-7.21",

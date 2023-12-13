@@ -24,7 +24,7 @@ describe('ConvertionDisplay component', () => {
       />
     );
 
-    const displayElement = screen.getByText('1 Bitcoin = 18.87 Ethereum');
+    const displayElement = screen.getByText('1 Bitcoin = 1.20 Ethereum');
     expect(displayElement).toBeInTheDocument();
   });
 

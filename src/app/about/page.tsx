@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './about.module.scss'
+import styles from '@/app/about/about.module.scss'
 import Image from 'next/image'
 
 const About = () => {
@@ -25,7 +25,3 @@ const About = () => {
 }
 
 export default About
-
-
-
-

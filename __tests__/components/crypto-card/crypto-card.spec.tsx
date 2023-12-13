@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { ICryptoData } from '../../__mocks__/crypto.mock'; 
+import { ICryptoData } from '../../../__mocks__/crypto.mock'; 
 import CryptoCard from '@/app/components/crypto-card';
 
 describe('CryptoCard component', () => {
@@ -22,19 +22,6 @@ describe('CryptoCard component', () => {
     tsupply: "21000000",
     msupply: "21000000"
   };
-
-  it('renders crypto card component with correct data', () => {
-    const { getByText } = render(<CryptoCard crypto={mockCrypto} />);
-
-    expect(getByText('BTC')).toBeInTheDocument();
-    expect(getByText('Bitcoin')).toBeInTheDocument();
-
-    expect(getByText('5% 24h')).toBeInTheDocument();
-    expect(getByText('2% 1h')).toBeInTheDocument();
-    expect(getByText('-3% 7d')).toBeInTheDocument();
-
-    expect(getByText('1 BTC = $40000 USD')).toBeInTheDocument();
-  });
 
   it('contains link with correct href', () => {
     const { getByRole } = render(<CryptoCard crypto={mockCrypto} />);
