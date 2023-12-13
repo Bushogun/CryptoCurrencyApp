@@ -1,6 +1,5 @@
 ﻿# CurrencyApp
-In this repository you will find an SQL with requested queries and a REACT project that performs filtering and information display operations
-Before starting you must check if you have a node version equal to or greater than 16 (do it with the "npm -v" command) and an npm version equal to or greater than 9 (do it with the "npm -v" command)
+Before starting you must check if you have a node version equal to or greater than 20.10.0 (do it with the "npm -v" command) and an npm version equal to or greater than 9.8.1 (do it with the "npm -v" command)
 
 1. Go to the link https://github.com/Bushogun/CryptoCurrencyApp/archive/refs/heads/main.zip
 2. Right click -> Extract here
