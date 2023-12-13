@@ -4,8 +4,8 @@ import { screen } from "@testing-library/dom";
 import { fireEvent } from "@testing-library/react";
 import { SearchBarForm } from "@/app/components/search-bar/search-bar-form";
 
-jest.mock("@/src/hooks/useProductData", () => {
-  const originalModule = jest.requireActual("@/src/hooks/useProductData");
+jest.mock("next/router", () => {
+  const originalModule = jest.requireActual("react-redux");
   return {
     __esModule: true,
     ...originalModule,
@@ -14,10 +14,10 @@ jest.mock("@/src/hooks/useProductData", () => {
 });
 
 describe("SearchBarForm component", () => {
-    it("Should render correctly", () => {
-      const { container } = renderWithProviders(<SearchBarForm />);
-      expect(container).toMatchSnapshot();
-    });
+  it("should render correctly ", () => {
+    const { container } = renderWithProviders(<SearchBarForm />);
+    expect(container).toMatchSnapshot();
+  });
   
     // it("should update search query when input value changes", async () => {
     //   const { store } = renderWithProviders(<SearchBarForm />);

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "@/redux/store";
 import { initialStateCrypto } from "@/redux/initial-state";
 
 const currencySlice = createSlice({

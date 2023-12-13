@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar component should render correctly  1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <a
+      href="/"
+    >
+      <img
+        alt="Crab Space Invaders"
+        data-nimg="1"
+        decoding="async"
+        fetchpriority="high"
+        height="45"
+        src="/_next/image?url=%2Fcrab-image.png&w=128&q=75"
+        srcset="/_next/image?url=%2Fcrab-image.png&w=64&q=75 1x, /_next/image?url=%2Fcrab-image.png&w=128&q=75 2x"
+        style="color: transparent;"
+        title="Logo FakeCompany"
+        width="60"
+      />
+    </a>
+    <ul>
+      <li>
+        <a
+          href="/exchange-rate"
+        >
+          Rate
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

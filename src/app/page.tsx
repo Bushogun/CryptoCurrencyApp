@@ -28,13 +28,13 @@ export default function Home() {
   useEffect(() => {
     dispatch(setLoading(true));
     fetch(endPoint)
-      .then((response) => response.json())
+      .then((response) => response.json())  
       .then((data) => {
         dispatch(setCryptos(data));
         dispatch(setLoading(false));
       })
       .catch((error) => {
-        dispatch(setError('Hubo un error en la conexión: ' + error));
+        dispatch(setError('There was an error in the connection: ' + error));
         dispatch(setLoading(true));
       });
   }, []);
@@ -46,7 +46,7 @@ export default function Home() {
     const toCrypto = cryptosData.find((crypto) => crypto.name === cryptoTo);
 
     if (!fromCrypto || !toCrypto) {
-      dispatch(setError('Una o ambas criptomonedas no se encontraron en los datos.'));
+      dispatch(setError('One or both cryptocurrencies were not found in the data.'));
       return null;
     }
   
@@ -54,7 +54,7 @@ export default function Home() {
     const toPriceUSD = parseFloat(toCrypto.price_usd);
   
     if (isNaN(fromPriceUSD) || isNaN(toPriceUSD)) {
-      dispatch(setError('Error al convertir el precio a número.'));
+      dispatch(setError('Error converting price to number.'));
       return null;
     }
   
@@ -69,7 +69,7 @@ export default function Home() {
       setConversionResult(rate);
       setConversionData({ currencyIHave: cryptoIHave, currencyIWant: cryptoIWant });
     } else {
-      dispatch(setError('Error al obtener los datos de las criptomonedas o los nombres seleccionados.'));
+      dispatch(setError('Error obtaining the data of the selected cryptocurrencies or names.'));
       dispatch(setLoading(false));
     }
   };

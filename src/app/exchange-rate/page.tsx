@@ -28,14 +28,13 @@ const ExchangeRate = () => {
         dispatch(setLoading(false));
       })
       .catch((error) => {
-        dispatch(setError('Hubo un error en la conexión: ' + error));
+        dispatch(setError('There was an error in the connection: ' + error));
         dispatch(setLoading(true));
       });
     return () => {
       dispatch(setCryptos('')); 
     };
   }, []);
-  
 
   const filteredCryptos = cryptos && cryptos.data
   ? cryptos.data.filter((crypto: ICrypto) => {
