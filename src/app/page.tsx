@@ -26,18 +26,20 @@ export default function Home() {
   const cryptoIWant = useAppSelector((state: RootState) => state.crypto.currencyIWant);
 
   useEffect(() => {
-    dispatch(setLoading(true));
-    fetch(endPoint)
-      .then((response) => response.json())  
-      .then((data) => {
-        dispatch(setCryptos(data));
-        dispatch(setLoading(false));
-      })
-      .catch((error) => {
-        dispatch(setError('There was an error in the connection: ' + error));
-        dispatch(setLoading(true));
-      });
-  }, []);
+    if (!cryptos) {
+      dispatch(setLoading(true));
+      fetch(endPoint)
+        .then((response) => response.json())  
+        .then((data) => {
+          dispatch(setCryptos(data));
+          dispatch(setLoading(false));
+        })
+        .catch((error) => {
+          dispatch(setError('There was an error in the connection: ' + error));
+          dispatch(setLoading(false));
+        });
+    }
+  }, [cryptos, dispatch, endPoint]);
   
 
   function calculateConversionRate(cryptoFrom: string, cryptoTo: string, cryptosData: any[]) {

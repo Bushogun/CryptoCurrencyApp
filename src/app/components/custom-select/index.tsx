@@ -34,6 +34,7 @@ const CustomSelect: React.FC<Props> = ({ crypto, type }) => {
   return (
     <div className={styles['custom-select']}>
       <select
+        id={type}
         value={selectedOption}
         onChange={handleOptionSelect}
         className={styles['custom-select']}

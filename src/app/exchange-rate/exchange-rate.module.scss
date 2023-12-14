@@ -31,6 +31,21 @@
             font-weight: 500;
             font-size: 3em;
         }
+        .container-buttons{
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            button{
+                background-color: $color__button--primary;
+                color: #fff;
+                font-size: 1em;
+                border: none;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+                border-radius: 50px;
+            }
+        }
     }
 
     .container-selectors {
@@ -57,7 +72,7 @@
     padding-bottom: 2em;
   }
   
-  .button_pagination {
+.button_pagination {
     background-color: $color__button--primary;
     color: #fff;
     border: none;
@@ -65,15 +80,15 @@
     margin: 5px;
     cursor: pointer;
     border-radius: 50px;
-  }
-  
-  .button_pagination:hover {
-    background-color: $color__button--primary;
-  }
-  
-  .button_pagination.selected {
-    background-color: $color__button--secondary;
-  }
+}
+
+.button_pagination:hover {
+background-color: $color__button--primary;
+}
+
+.button_pagination.selected {
+background-color: $color__button--secondary;
+}
 
 
 @media screen and (max-width: 767px) and (min-width: 423px) {

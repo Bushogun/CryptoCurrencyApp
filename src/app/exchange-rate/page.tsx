@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/app/exchange-rate/exchange-rate.module.scss';
 import CryptoCard from '@/app/components/crypto-card';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
@@ -8,8 +8,15 @@ import { SearchBarForm } from '@/app/components/search-bar/search-bar-form';
 import { setCryptos, setError, setLoading } from '@/redux/features/crypto-slice';
 import { ICrypto } from '@/app/interfaces/i-crypto';
 import { RootState } from '@/redux/store';
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ExchangeRate = () => {
+  const [start, setStart] = useState(0); 
+  const [limit, setLimit] = useState(100); 
+  const [coinsNum, setCoinsNum] = useState(0); 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const dispatch = useAppDispatch();
   const cryptos = useAppSelector((state: RootState) => state.crypto.cryptos);
   const filterQuery = useAppSelector((state: RootState) => state.crypto.filterQuery);
@@ -21,20 +28,25 @@ const ExchangeRate = () => {
 
   useEffect(() => {
     dispatch(setLoading(true));
-    fetch(endPoint)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${endPoint}?start=${start}&limit=${limit}`);
+        const data = await response.json();
         dispatch(setCryptos(data));
+        setCoinsNum(data.info.coins_num); 
         dispatch(setLoading(false));
-      })
-      .catch((error) => {
+      } catch (error) {
         dispatch(setError('There was an error in the connection: ' + error));
-        dispatch(setLoading(true));
-      });
-    return () => {
-      dispatch(setCryptos('')); 
+        dispatch(setLoading(false));
+      }
     };
-  }, []);
+
+    fetchData();
+
+    return () => {
+      dispatch(setCryptos(''));
+    };
+  }, [start, limit]);
 
   const filteredCryptos = cryptos && cryptos.data
   ? cryptos.data.filter((crypto: ICrypto) => {
@@ -44,6 +56,20 @@ const ExchangeRate = () => {
       );
     })
   : [];
+
+  const handleNextPage = () => {
+    if (start + limit < coinsNum) {
+      setStart(start + limit);
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (start - limit >= 0) {
+      setStart(start - limit);
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
     <div className={styles.listContainer}>
@@ -66,6 +92,14 @@ const ExchangeRate = () => {
                   ) : (
                   <p className={styles['not-found']}>Not found your search :(</p>
                   )}
+                  <div className={styles['container-buttons']}>
+                    <button onClick={handlePrevPage} disabled={start === 0} >
+                      <FaArrowAltCircleLeft />
+                    </button>
+                    <button onClick={handleNextPage} disabled={start + limit >= coinsNum}>
+                      <FaArrowAltCircleRight />
+                    </button>
+                  </div>
             </div>
           </div>
         )}

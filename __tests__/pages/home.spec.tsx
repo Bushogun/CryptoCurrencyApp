@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { setupStore } from '@/redux/store';
 import { ICryptoData } from '../../__mocks__/crypto.mock'; 
 import Home from '@/app/page';
-
+import RootLayout from '@/app/layout';
 const mockCrypto: ICryptoData = {
     id: "80",
     symbol: "BTC",
@@ -23,8 +23,7 @@ const mockCrypto: ICryptoData = {
     msupply: "21000000"
   };
 
-
-function mockResponse(data: any): Response {
+  function mockResponse(data: any): Response {
   return new Response(JSON.stringify(data));
 }
 
@@ -49,5 +48,27 @@ describe('Home Component', () => {
     const headerText = 'Currency converter';
 
     expect(header).toHaveTextContent(headerText);
+  });
+});
+
+describe('RootLayout', () => {
+  it('renders Navbar', () => {
+    render(
+      <RootLayout>
+        <div>Test Content</div>
+      </RootLayout>
+    );
+    const navbarElement = screen.getByRole('navigation');
+    expect(navbarElement).toBeInTheDocument();
+  });
+
+  it('renders children', () => {
+    render(
+      <RootLayout>
+        <div data-testid="test-content">Test Content</div>
+      </RootLayout>
+    );
+    const testContentElement = screen.getByTestId('test-content');
+    expect(testContentElement).toBeInTheDocument();
   });
 });
