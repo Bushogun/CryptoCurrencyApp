@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Component renders About component correctly 1`] = `
+<div>
+  <div
+    class="about-container"
+  >
+    <img
+      alt="Jonathan Soto"
+      data-nimg="1"
+      decoding="async"
+      height="300"
+      loading="lazy"
+      src="/_next/image?url=%2Funtitled.png&w=1920&q=75"
+      srcset="/_next/image?url=%2Funtitled.png&w=750&q=75 1x, /_next/image?url=%2Funtitled.png&w=1920&q=75 2x"
+      style="color: transparent;"
+      title="Jonathan Soto"
+      width="650"
+    />
+    <img
+      alt="3D Model JS"
+      data-nimg="1"
+      decoding="async"
+      height="650"
+      loading="lazy"
+      src="/_next/image?url=%2F3dmodelJs2.png&w=1080&q=75"
+      srcset="/_next/image?url=%2F3dmodelJs2.png&w=640&q=75 1x, /_next/image?url=%2F3dmodelJs2.png&w=1080&q=75 2x"
+      style="color: transparent;"
+      title="Jonathan Soto"
+      width="450"
+    />
+  </div>
+</div>
+`;

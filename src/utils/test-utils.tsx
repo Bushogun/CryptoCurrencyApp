@@ -25,13 +25,3 @@ export function renderWithProviders(
   }
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
-
-
-// export function renderWithRedux ( renderedComponent: any ) {
-//   const store = configureStore ({
-//     reducer:{
-//       crypto: currencyReducer,
-//     },
-//   });
-//   return render(<Provider store={store}>{renderedComponent}</Provider>)
-// }
