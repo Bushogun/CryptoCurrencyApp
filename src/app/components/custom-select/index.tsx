@@ -1,53 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import React, { Component, ChangeEvent } from 'react';
 import { ICrypto } from '@/app/interfaces/i-crypto';
 import styles from '@/app/components/custom-select/custom-select.module.scss';
 import { setCurrencyIHave, setCurrencyIWant } from '@/redux/features/crypto-slice';
 
-interface Props {
+interface CustomSelectProps {
   crypto: ICrypto[] | undefined;
   type: 'currencyIHave' | 'currencyIWant'; 
+  dispatchAction: (action: any) => void; 
+  selectedCurrency: string;
 }
 
-const CustomSelect: React.FC<Props> = ({ crypto, type }) => {
-  const dispatch = useAppDispatch();
+interface CustomSelectState {
+  selectedOption: string;
+}
 
-  const [selectedOption, setSelectedOption] = useState<string>('');
+class CustomSelect extends Component<CustomSelectProps, CustomSelectState> {
+  constructor(props: CustomSelectProps) {
+    super(props);
+    this.state = {
+      selectedOption: this.props.selectedCurrency || ''
+    };
+    this.handleOptionSelect = this.handleOptionSelect.bind(this);
+  }
 
-  useEffect(() => {
-    if (crypto) {
-      setSelectedOption(''); 
+  componentDidUpdate(prevProps: CustomSelectProps) {
+    const { crypto, selectedCurrency } = this.props;
+    if (crypto !== prevProps.crypto && crypto && selectedCurrency !== this.state.selectedOption) {
+      this.setState({ selectedOption: selectedCurrency });
     }
-  }, [crypto]);
+  }
 
-  const handleOptionSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  handleOptionSelect(event: ChangeEvent<HTMLSelectElement>) {
     const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
+    this.setState({ selectedOption: selectedValue });
 
+    const { type, dispatchAction } = this.props;
     if (type === 'currencyIHave') {
-      dispatch(setCurrencyIHave(selectedValue));
+      dispatchAction(setCurrencyIHave(selectedValue));
     } else if (type === 'currencyIWant') {
-      dispatch(setCurrencyIWant(selectedValue));
+      dispatchAction(setCurrencyIWant(selectedValue));
     }
-  };
+  }
 
-  return (
-    <div className={styles['custom-select']}>
-      <select
-        id={type}
-        value={selectedOption}
-        onChange={handleOptionSelect}
-        className={styles['custom-select']}
-      >
-        <option value="">Select an option</option>
-        {crypto?.map((cryptoItem, index) => (
-          <option key={index} value={cryptoItem.name}>
-            {cryptoItem.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-};
+  render() {
+    const { selectedOption } = this.state;
+    const { crypto, type } = this.props;
+
+    return (
+      <div className={styles['custom-select']}>
+        <select
+          id={type}
+          value={selectedOption}
+          onChange={this.handleOptionSelect}
+          className={styles['custom-select']}
+        >
+          <option value="">Select an option</option>
+          {crypto?.map((cryptoItem, index) => (
+            <option key={index} value={cryptoItem.name}>
+              {cryptoItem.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+}
 
 export default CustomSelect;

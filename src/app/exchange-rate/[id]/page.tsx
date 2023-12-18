@@ -1,73 +1,103 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import styles from '@/app/exchange-rate/[id]/exchage-rate-details.module.scss';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { setError, setLoading, setSpecificCrypto } from '@/redux/features/crypto-slice'
-import LoadingSpinner from '@/app/components/loading-spinner/loading-spinner';
 import { RootState } from '@/redux/store';
-  
-  const ExchangeRate = (params: any) => {
-  const dispatch = useAppDispatch();
-  const specificCrypto = useAppSelector((state: RootState) => state.crypto.specificCrypto);
-  const loading = useAppSelector((state: RootState) => state.crypto.loading);
-  const error = useAppSelector((state: RootState) => state.crypto.error);
+import { setError, setLoading, setSpecificCrypto } from '@/redux/features/crypto-slice';
+import LoadingSpinner from '@/app/components/loading-spinner/loading-spinner';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
-  useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
-    const requestSpecificCrypto = process.env.NEXT_PUBLIC_REQUEST_SPECIFIC_CRYPTO!;
-    const endPoint = `${apiUrl}${requestSpecificCrypto}${params.params.id}`;
-    dispatch(setLoading(true));
+interface ExchangeRateProps {
+  specificCrypto: RootState['crypto']['specificCrypto'];
+  loading: RootState['crypto']['loading'];
+  error: RootState['crypto']['error'];
+  setSpecificCrypto: (data: any) => void;
+  setError: (error: string) => void;
+  setLoading: (loading: boolean) => void;
+  params: {
+    id: string;
+  };
+}
 
-    const fetchData = async () => {
-      try {
-        const res = await fetch(endPoint);
-        const data = await res.json();
-        dispatch(setSpecificCrypto(data[0]));
-        dispatch(setLoading(false));
-      } catch (error) {
-        dispatch(setError('We have a trouble with the conection ' + error));
-        dispatch(setLoading(false));
-      }
-    };
-    fetchData();
-  }, [dispatch, params.params.id]);
+class ExchangeRate extends Component<ExchangeRateProps> {
+  apiUrl: string;
+  requestSpecificCrypto: string;
+  endPoint: string;
 
+  constructor(props: ExchangeRateProps) {
+    super(props);
+    this.apiUrl = process.env.NEXT_PUBLIC_API_URL!;
+    this.requestSpecificCrypto = process.env.NEXT_PUBLIC_REQUEST_SPECIFIC_CRYPTO!;
+    this.endPoint = `${this.apiUrl}${this.requestSpecificCrypto}${this.props.params.id}`;
+  }
 
-  return (
-    <>
-      {loading ? (
-        <LoadingSpinner />
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <div className={styles['container-page']}>
-          <div className={styles['container-cards']}>
-            <div className={styles['basic-quote']}>
-              <div className={styles.name}>
-                <h1>{specificCrypto?.name || 'Is not avalible'}</h1>
-                <h2>{specificCrypto?.symbol || 'Is not avalible'}</h2>
+  componentDidMount() {
+    this.props.setLoading(true);
+    this.fetchData();
+  }
+
+  async fetchData() {
+    try {
+      const res = await fetch(this.endPoint);
+      const data = await res.json();
+      this.props.setSpecificCrypto(data[0]);
+      this.props.setLoading(false);
+    } catch (error) {
+      this.props.setError('We have a trouble with the connection ' + error);
+      this.props.setLoading(false);
+    }
+  }
+
+  render() {
+    const { specificCrypto, loading, error } = this.props;
+
+    return (
+      <>
+        {loading ? (
+          <LoadingSpinner />
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <div className={styles['container-page']}>
+            <div className={styles['container-cards']}>
+              <div className={styles['basic-quote']}>
+                <div className={styles.name}>
+                  <h1>{specificCrypto?.name || 'Is not available'}</h1>
+                  <h2>{specificCrypto?.symbol || 'Is not available'}</h2>
+                </div>
+                <div className={styles['quote-status']}>
+                  <p>Price USD: {specificCrypto?.price_usd || 'Is not available'}</p>
+                  <p><small>Change 24h</small>: {specificCrypto?.percent_change_24h || 'Is not available'}%</p>
+                  <p><small>Change 1h</small>: {specificCrypto?.percent_change_1h || 'Is not available'}%</p>
+                  <p><small>Change 7d</small>: {specificCrypto?.percent_change_7d || 'Is not available'}%</p>
+                </div>
               </div>
-              <div className={styles['quote-status']}>
-                <p>Price USD: {specificCrypto?.price_usd || 'Is not avalible'}</p>
-                <p> <small>Change 24h</small>: {specificCrypto?.percent_change_24h || 'Is not avalible'}%</p>
-                <p> <small>Change 1h</small>: {specificCrypto?.percent_change_1h || 'Is not avalible'}%</p>
-                <p> <small>Change 7d</small>: {specificCrypto?.percent_change_7d || 'Is not avalible'}%</p>
+              <div className={styles.value}>
+                <p>Market Cap USD: {specificCrypto?.market_cap_usd || 'Is not available'}</p>
               </div>
-            </div>
-            <div className={styles.value}>
-              <p>Market Cap USD: {specificCrypto?.market_cap_usd || 'Is not avalible'}</p>
-            </div>
-            <div className={styles.supply}>
-              <p><span>Current Supply: <br/> </span>{specificCrypto?.csupply || ''}</p>
-              <p><span>Total Supply: <br/> </span>{specificCrypto?.tsupply || ''}</p>
-              <p><span>Max Supply: <br/> </span>{specificCrypto?.msupply || ''}</p>
+              <div className={styles.supply}>
+                <p><span>Current Supply: <br/> </span>{specificCrypto?.csupply || ''}</p>
+                <p><span>Total Supply: <br/> </span>{specificCrypto?.tsupply || ''}</p>
+                <p><span>Max Supply: <br/> </span>{specificCrypto?.msupply || ''}</p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </>
-  );
+        )}
+      </>
+    );
+  }
+}
 
-};
+const mapStateToProps = (state: RootState) => ({
+  specificCrypto: state.crypto.specificCrypto,
+  loading: state.crypto.loading,
+  error: state.crypto.error,
+});
 
-export default ExchangeRate;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setSpecificCrypto: (data: any) => dispatch(setSpecificCrypto(data)),
+  setError: (error: string) => dispatch(setError(error)),
+  setLoading: (loading: boolean) => dispatch(setLoading(loading)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExchangeRate);

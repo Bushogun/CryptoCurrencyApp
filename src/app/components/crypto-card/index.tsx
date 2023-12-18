@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from '@/app/components/crypto-card/crypto-card.module.scss';
 import { ICrypto } from '@/app/interfaces/i-crypto';
 import Link from 'next/link';
 
-interface Props {
-  crypto: ICrypto; 
+interface CryptoCardProps {
+  crypto: ICrypto;
 }
 
-const CryptoCard: React.FC<Props> = ({ crypto }) => {
-  return (
-    <>
-      <Link
-        key={crypto.id}
-        href={`/exchange-rate/${crypto.id}`}
-        className={styles.container}
-      >
+class CryptoCard extends Component<CryptoCardProps> {
+  render() {
+    const { crypto } = this.props;
+
+    return (
+      <Link href={`/exchange-rate/${crypto.id}`} className={styles.container}>
         <div className={styles['container-info']}>
           <div className={styles['basic-quote']}>
             <div className={styles.name}>
@@ -36,8 +34,8 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
           </div>
         </div>
       </Link>
-    </>
-  );
-};
+    );
+  }
+}
 
 export default CryptoCard;
